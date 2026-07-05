@@ -1,0 +1,34 @@
+{
+  "name": "thai-silver-saas",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:migrate": "node scripts/run-migrations.js",
+    "playwright:upload": "npx playwright test --config playwright/playwright.config.ts",
+    "bubblewrap:build": "node scripts/bubblewrap-build.js",
+    "setup": "powershell -ExecutionPolicy Bypass -File scripts/setup.ps1"
+  },
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "next-pwa": "^5.6.0",
+    "qrcode": "^1.5.4",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@types/qrcode": "^1.5.5",
+    "playwright": "^1.45.0",
+    "@playwright/test": "^1.45.0",
+    "tsx": "^4.16.0"
+  }
+}
