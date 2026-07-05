@@ -6,20 +6,24 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { email, password, action } = body;
 
-    if (!email || !password || !action) {
+    if (action === 'signout') {
+      const { error } = await supabase.auth.signOut();
+      if (error) return NextResponse.json({ error: error.message }, { status: 401 });
+      return NextResponse.json({ success: true });
+    }
+
+    if (!email || !password) {
       return NextResponse.json(
-        { error: 'email, password, and action are required' },
+        { error: 'email and password are required' },
         { status: 400 }
       );
     }
 
-    let result;
+    let result: any;
     if (action === 'signup') {
       result = await supabase.auth.signUp({ email, password });
     } else if (action === 'signin') {
       result = await supabase.auth.signInWithPassword({ email, password });
-    } else if (action === 'signout') {
-      result = await supabase.auth.signOut();
     } else {
       return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
@@ -28,7 +32,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: result.error.message }, { status: 401 });
     }
 
-    return NextResponse.json({ data: result.data });
+    return NextResponse.json({ data: result.data || result.session });
   } catch (err) {
     return NextResponse.json(
       { error: err instanceof Error ? err.message : 'Internal server error' },
