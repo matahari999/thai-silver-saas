@@ -36,7 +36,7 @@ export default function IncidentsPage({ params }: { params: { locale: string } }
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 600 }}>{t.incident.title}</h1>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 600 }}>{t.incident.pageTitle}</h1>
         <button className="btn btn-primary">{t.incident.add}</button>
       </div>
 

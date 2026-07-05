@@ -104,7 +104,7 @@ const th: Translations = {
     summary: 'สรุปรายวัน',
   },
   incident: {
-    title: 'รายงานเหตุการณ์',
+    pageTitle: 'รายงานเหตุการณ์',
     add: 'รายงานเหตุการณ์',
     edit: 'แก้ไขเหตุการณ์',
     type: 'ประเภทเหตุการณ์',

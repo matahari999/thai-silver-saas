@@ -92,7 +92,7 @@ export default function ReportsPage({ params }: { params: { locale: string } }) 
                 <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>{(report as any).summary.medicationAdherence || 0}%</div>
               </div>
               <div className="card" style={{ padding: '1rem' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{t.incident.title}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{t.incident.pageTitle}</div>
                 <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>{(report as any).summary.incidentsCount || 0}</div>
               </div>
             </div>

@@ -102,7 +102,7 @@ const en = {
     summary: 'Daily Summary',
   },
   incident: {
-    title: 'Incident Reports',
+    pageTitle: 'Incident Reports',
     add: 'Report Incident',
     edit: 'Edit Incident',
     type: 'Incident Type',
