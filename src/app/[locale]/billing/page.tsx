@@ -40,7 +40,7 @@ export default function BillingPage({ params }: { params: { locale: string } }) 
 
   // Calculate totals
   const totalPending = invoices
-    .filter(i => i.status === 'pending')
+    .filter(i => i.status === 'draft' || i.status === 'sent')
     .reduce((sum, i) => sum + Number(i.amount), 0);
   const totalPaid = invoices
     .filter(i => i.status === 'paid')
@@ -63,7 +63,7 @@ export default function BillingPage({ params }: { params: { locale: string } }) 
         marginBottom: '1.5rem',
       }}>
         <div className="card" style={{ borderLeft: '4px solid var(--warning)' }}>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{t.billing.pending}</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{t.billing.draft} / {t.billing.sent}</div>
           <div style={{ fontSize: '1.5rem', fontWeight: 700 }}>฿{totalPending.toLocaleString()}</div>
         </div>
         <div className="card" style={{ borderLeft: '4px solid var(--secondary)' }}>
@@ -84,7 +84,8 @@ export default function BillingPage({ params }: { params: { locale: string } }) 
           style={{ maxWidth: '250px' }}
         >
           <option value="">{locale === 'en' ? 'All statuses' : 'ทุกสถานะ'}</option>
-          <option value="pending">{t.billing.pending}</option>
+          <option value="draft">{t.billing.draft}</option>
+          <option value="sent">{t.billing.sent}</option>
           <option value="paid">{t.billing.paid}</option>
           <option value="overdue">{t.billing.overdue}</option>
           <option value="cancelled">{t.billing.cancelled}</option>
