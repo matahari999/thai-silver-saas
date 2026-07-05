@@ -10,7 +10,7 @@ export default function ReportsPage({ params }: { params: { locale: string } }) 
   const [residentId, setResidentId] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [report, setReport] = useState<unknown>(null);
+  const [report, setReport] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
   async function generateReport() {
