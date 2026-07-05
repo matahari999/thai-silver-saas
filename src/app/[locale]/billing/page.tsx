@@ -6,10 +6,19 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
 const statusBadge: Record<string, string> = {
-  pending: 'badge-warning',
+  draft: 'badge-default',
+  sent: 'badge-info',
   paid: 'badge-success',
   overdue: 'badge-danger',
   cancelled: 'badge-default',
+};
+
+const methodKeyMap: Record<string, string> = {
+  cash: 'cash',
+  promptpay: 'promptpay',
+  bank_transfer: 'bankTransfer',
+  credit_card: 'creditCard',
+  debit_card: 'debitCard',
 };
 
 export default function BillingPage({ params }: { params: { locale: string } }) {
@@ -128,7 +137,7 @@ export default function BillingPage({ params }: { params: { locale: string } }) 
                       </span>
                     </td>
                     <td style={{ fontSize: '0.8125rem' }}>
-                      {inv.payment_method ? t.billing[inv.payment_method] : '-'}
+                      {inv.payment_method ? t.billing[methodKeyMap[inv.payment_method] as keyof typeof t.billing] || inv.payment_method : '-'}
                     </td>
                     <td style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
                       {new Date(inv.issued_at).toLocaleDateString()}
