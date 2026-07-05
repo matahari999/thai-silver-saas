@@ -210,6 +210,7 @@ const th: Translations = {
     cancel: 'ยกเลิก',
     confirm: 'ยืนยัน',
     delete: 'ลบ',
+    edit: 'แก้ไข',
     loading: 'กำลังโหลด...',
     noData: 'ไม่มีข้อมูล',
     error: 'เกิดข้อผิดพลาด',

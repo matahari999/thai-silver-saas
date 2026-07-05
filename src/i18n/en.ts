@@ -208,6 +208,7 @@ const en = {
     cancel: 'Cancel',
     confirm: 'Confirm',
     delete: 'Delete',
+    edit: 'Edit',
     loading: 'Loading...',
     noData: 'No data available',
     error: 'An error occurred',

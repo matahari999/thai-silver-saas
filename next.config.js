@@ -18,11 +18,7 @@ const withPWA = require('next-pwa')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ['en', 'th'],
-    defaultLocale: 'th',
-    localeDetection: true,
-  },
+  output: 'standalone',
 };
 
 module.exports = withPWA(nextConfig);
