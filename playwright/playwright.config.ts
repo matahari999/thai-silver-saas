@@ -13,11 +13,17 @@ export default defineConfig({
     navigationTimeout: 60000,
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
+    launchOptions: {
+      executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+    },
   },
   projects: [
     {
-      name: 'chromium',
-      use: { browserName: 'chromium' },
+      name: 'Microsoft Edge',
+      use: {
+        browserName: 'chromium',
+        channel: 'msedge',
+      },
     },
   ],
 });
